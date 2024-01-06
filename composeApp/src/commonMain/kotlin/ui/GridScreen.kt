@@ -22,7 +22,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
@@ -58,7 +60,7 @@ fun ProductItem(name: String, description: String, price: String, discount: Stri
         backgroundColor = MaterialTheme.colors.surface
     ) {
 
-        Column(modifier = Modifier.height(370.dp).padding(10.dp)) {
+        Column(modifier = Modifier.height(380.dp).padding(10.dp)) {
             KamelImage(
                 resource = asyncPainterResource(data = image),
                 contentDescription = null,
@@ -71,34 +73,35 @@ fun ProductItem(name: String, description: String, price: String, discount: Stri
                     modifier = Modifier.padding(2.dp),
                     text = name,
                     maxLines = 3,
+                    fontWeight = FontWeight.Bold,
                     style = MaterialTheme.typography.h6,
-                    color = MaterialTheme.colors.onSurface,
+                    color = Color.Black,
                 )
                 Spacer(modifier = Modifier.height(3.dp))
                 Text(
                     modifier = Modifier.padding(2.dp),
                     text = description,
+                    fontWeight = FontWeight.Normal,
                     maxLines = 4,
                     style = MaterialTheme.typography.body2,
+                    color = Color.Gray
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.weight(1f))
                 Text(
                     modifier = Modifier.padding(2.dp),
-                    text = "USD $price",
+                    text = "$$price",
+                    fontWeight = FontWeight.Bold,
                     style = MaterialTheme.typography.button,
                 )
                 Spacer(modifier = Modifier.height(3.dp))
                 Text(
                     modifier = Modifier.padding(2.dp),
-                    text = "$discount% off",
+                    text = "$discount% Discount",
+                    fontWeight = FontWeight.Bold,
                     style = MaterialTheme.typography.button,
+                    color = Color(red=0.1f, green = 0.8f, blue = 0.0f)
                 )
             }
-        }
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-
         }
     }
 }
