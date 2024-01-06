@@ -9,7 +9,7 @@ import viewmodel.HomeViewModel
 @Composable
 fun HomeScreen(){
     val viewModel: HomeViewModel= getKoin().get()
-    val homeScreenState by viewModel.homeScreenState.collectAsState()
+    val homeScreenState by viewModel.homeViewState.collectAsState()
     LaunchedEffect(Unit) {
         viewModel.getProducts()
     }

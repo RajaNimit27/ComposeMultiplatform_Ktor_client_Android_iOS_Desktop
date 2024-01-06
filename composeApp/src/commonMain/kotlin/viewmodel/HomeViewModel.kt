@@ -16,8 +16,8 @@ import network.NetworkRepository
 class HomeViewModel(private val networkRepository: NetworkRepository) {
 
     private val _homeState = MutableStateFlow(HomeState())
-    private val _homeScreenState: MutableStateFlow<HomeScreenState> = MutableStateFlow(HomeScreenState.Loading)
-    val homeScreenState = _homeScreenState.asStateFlow()
+    private val _homeViewState: MutableStateFlow<HomeScreenState> = MutableStateFlow(HomeScreenState.Loading)
+    val homeViewState = _homeViewState.asStateFlow()
 
     suspend fun getProducts() {
         CoroutineScope(Dispatchers.IO).launch {
@@ -34,7 +34,7 @@ class HomeViewModel(private val networkRepository: NetworkRepository) {
                             _homeState.update { it.copy(isLoading = false,errorMessage = response.message) }
                         }
                     }
-                    _homeScreenState.value = _homeState.value.toUiState()
+                    _homeViewState.value = _homeState.value.toUiState()
                 }
             } catch (e: Exception) {
                 _homeState.update { it.copy(isLoading = false,errorMessage ="Failed to fetch data") }
