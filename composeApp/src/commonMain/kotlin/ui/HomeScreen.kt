@@ -24,7 +24,7 @@ fun HomeScreen(){
         }
         is HomeViewModel.HomeScreenState.Success -> {
             val products = (homeScreenState as HomeViewModel.HomeScreenState.Success).responseData.list
-            ListScreen(products)
+            GridScreen(products)
         }
         is HomeViewModel.HomeScreenState.Error -> {
 

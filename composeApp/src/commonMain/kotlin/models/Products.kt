@@ -18,6 +18,8 @@ data class Products (
     val description: String="",
     @SerialName("price")
     val price: Double=0.0,
+    @SerialName("discountPercentage")
+    val discountPercentage: Double=0.0,
     @SerialName("category")
     val category: String="",
     @SerialName("thumbnail")
