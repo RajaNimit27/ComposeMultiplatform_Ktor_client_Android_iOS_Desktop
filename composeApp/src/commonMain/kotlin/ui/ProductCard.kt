@@ -2,24 +2,18 @@ package ui
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -33,7 +27,7 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 
 
 @Composable
-fun GridScreen(list: List<Products>) {
+fun ProductCard(list: List<Products>) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         verticalArrangement = Arrangement.spacedBy(5.dp),
@@ -96,7 +90,7 @@ fun ProductItem(name: String, description: String, price: String, discount: Stri
                 Spacer(modifier = Modifier.height(3.dp))
                 Text(
                     modifier = Modifier.padding(2.dp),
-                    text = "$discount% Discount",
+                    text = "$discount% discount",
                     fontWeight = FontWeight.Bold,
                     style = MaterialTheme.typography.button,
                     color = Color(red=0.1f, green = 0.8f, blue = 0.0f)
