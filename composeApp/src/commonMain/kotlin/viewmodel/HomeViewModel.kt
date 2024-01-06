@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import models.ApiResponse
 import network.ApiStatus
 import network.NetworkRepository
@@ -41,13 +40,11 @@ class HomeViewModel(private val networkRepository: NetworkRepository) {
             }
         }
     }
-
     sealed class HomeScreenState {
         data object Loading: HomeScreenState()
         data class Error(val errorMessage: String):HomeScreenState()
         data class Success(val responseData: ApiResponse):HomeScreenState()
     }
-
     private data class HomeState(
         val isLoading:Boolean = false,
         val errorMessage: String?=null,
