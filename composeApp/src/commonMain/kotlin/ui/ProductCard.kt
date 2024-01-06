@@ -23,7 +23,6 @@ import androidx.compose.ui.unit.dp
 import io.kamel.image.KamelImage
 import io.kamel.image.asyncPainterResource
 import models.Products
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 
 
 @Composable
@@ -42,7 +41,7 @@ fun ProductCard(list: List<Products>) {
     )
 }
 
-@OptIn(ExperimentalResourceApi::class)
+
 @Composable
 fun ProductItem(name: String, description: String, price: String, discount: String, image: String) {
     Card(
